@@ -55,6 +55,7 @@ router.post("/login", async (req, res) => {
           message: "Login successful",
         });
       } else {
+        console.log("this is a problem!");
         res.status(401).json({
           error: "Authentication failed!",
         });
