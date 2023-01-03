@@ -26,6 +26,7 @@ router.post("/signup", async (req, res) => {
 
 // login
 router.post("/login", async (req, res) => {
+  console.log("login router");
   try {
     const user = await User.findOne({ userName: req.body.userName }).select(
       "+password"
@@ -60,10 +61,10 @@ router.post("/login", async (req, res) => {
           error: "Authentication failed!",
         });
       }
-    } else{
+    } else {
       res.status(404).json({
-        error:"User not found!"
-      })
+        error: "User not found!",
+      });
     }
   } catch (err) {
     console.log(err);
