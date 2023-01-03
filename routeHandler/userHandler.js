@@ -60,6 +60,10 @@ router.post("/login", async (req, res) => {
           error: "Authentication failed!",
         });
       }
+    } else{
+      res.status(404).json({
+        error:"User not found!"
+      })
     }
   } catch (err) {
     console.log(err);
