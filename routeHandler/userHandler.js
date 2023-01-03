@@ -57,7 +57,8 @@ router.post("/login", async (req, res) => {
         });
       }
     }
-  } catch {
+  } catch (err) {
+    console.log(err);
     res.status(401).json({
       error: "Authentication failed!",
     });
