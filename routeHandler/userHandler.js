@@ -30,7 +30,10 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ userName: req.body.userName }).select(
       "+password"
     );
+    console.log(user);
     if (user) {
+      console.log(req.body.password);
+      console.log(user.password);
       const isValidPassword = await bcrypt.compare(
         req.body.password,
         user.password
